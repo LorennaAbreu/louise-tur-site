@@ -1,74 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Louise Tur - Agência de Viagens</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fdfdfd;
       color: #333;
+      line-height: 1.6;
     }
     header {
-      background-color: #0066cc;
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+      background-size: cover;
+      background-position: center;
       color: white;
-      padding: 40px 20px;
+      padding: 100px 20px;
       text-align: center;
     }
+    header h1 { font-size: 3rem; margin-bottom: 10px; }
+    header p { font-size: 1.2rem; letter-spacing: 1px; }
     nav {
       display: flex;
       justify-content: center;
+      gap: 30px;
       background-color: #004080;
+      padding: 15px;
     }
     nav a {
       color: white;
-      padding: 15px 20px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      transition: color 0.3s;
     }
-    nav a:hover {
-      background-color: #003366;
-    }
+    nav a:hover { color: #ffd700; }
     section {
-      padding: 40px 20px;
-      max-width: 900px;
+      padding: 60px 20px;
+      max-width: 1000px;
       margin: auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #004080;
     }
     .cta {
       background-color: #e6f0ff;
-      padding: 20px;
+      padding: 30px;
       text-align: center;
+      border-radius: 12px;
       margin-top: 40px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 10px;
+      font-size: 1rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+    .popout {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 1000;
+      width: 300px;
+      animation: slideUp 0.4s ease-out;
+    }
+    .popout-content {
+      padding: 15px;
+      text-align: center;
+    }
+    .popout-content img {
+      width: 100%;
       border-radius: 8px;
+    }
+    .popout-content h3 {
+      margin-top: 10px;
+      color: #004080;
+      font-size: 1rem;
+    }
+    .popout-close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 20px;
+      cursor: pointer;
+      color: #666;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 15px 18px;
+      font-size: 24px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 999;
+    }
+    .servicos ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .servicos li {
+      background-color: #f0f8ff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-left: 5px solid #004080;
+    }
+    form {
+      margin-top: 20px;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+    form button {
+      background-color: #004080;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background-color: #002f5f;
     }
     footer {
       background-color: #003366;
       color: white;
       text-align: center;
       padding: 20px;
-      margin-top: 40px;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    form button {
-      background-color: #0066cc;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    form button:hover {
-      background-color: #004c99;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -81,46 +194,93 @@
   <nav>
     <a href="#sobre">Sobre</a>
     <a href="#servicos">Serviços</a>
+    <a href="#galeria">Praias</a>
     <a href="#contato">Contato</a>
   </nav>
 
   <section id="sobre">
     <h2>Sobre a Louise Tur</h2>
-    <p>A Louise Tur nasceu do desejo de aproximar pessoas dos seus sonhos de viagem com conforto, segurança e preços acessíveis. Atuamos com foco no Nordeste brasileiro, oferecendo experiências inesquecíveis em destinos encantadores da nossa região. Nossa missão é tornar cada viagem uma memória especial e acessível para todos. Com atendimento humanizado e atenção aos detalhes, planejamos cada etapa com carinho para que você possa apenas relaxar e aproveitar o melhor da sua jornada.</p>
+    <p>A <strong>Louise Tur</strong> é uma agência especializada em viagens pelo Nordeste brasileiro. Oferecemos pacotes acessíveis, roteiros personalizados e experiências incríveis pelas praias mais paradisíacas do país. Nosso compromisso é com o seu conforto, tranquilidade e felicidade — da saída ao retorno. Com atendimento humanizado e paixão pelo que fazemos, levamos você aos melhores destinos com segurança e praticidade.</p>
   </section>
 
-  <section id="servicos">
-    <h2>O que oferecemos</h2>
+  <section id="servicos" class="servicos">
+    <h2>Serviços oferecidos</h2>
     <ul>
-      <li>Pacotes de viagem nacionais</li>
-      <li>Passagens terrestres para o Nordeste</li>
-      <li>Roteiros personalizados</li>
-      <li>Suporte antes e durante a viagem</li>
+      <li>Pacotes de viagem nacionais (Nordeste)</li>
+      <li>Passagens terrestres com conforto</li>
+      <li>Roteiros personalizados para grupos, famílias e casais</li>
+      <li>Suporte completo antes e durante sua viagem</li>
     </ul>
     <div class="cta">
-      <h3>Pronto para sua próxima aventura?</h3>
-      <p>Fale com a gente pelo Instagram: <strong>@Louise_tur</strong></p>
+      <h3>Quer saber mais?</h3>
+      <p>Chama a gente no Instagram: <strong>@LouiseTur</strong></p>
     </div>
   </section>
 
+  <section id="galeria">
+    <h2>Praias incríveis que você pode conhecer</h2>
+    <div class="gallery">
+      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/35/90/8c/caption.jpg?w=800&h=400&s=1" alt="Lagoinha, CE">
+        <div class="caption">Lagoinha, CE</div>
+      </div>
+      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
+        <img src="https://www.viajali.com.br/wp-content/uploads/2018/05/praia-maragogi-28.jpg" alt="Maragogi, AL">
+        <div class="caption">Maragogi, AL</div>
+      </div>
+      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
+        <img src="https://www.dicasportodegalinhas.com.br/wp-content/uploads/2023/07/PiscNat-AHPG_vlubambo-7563-1980x1450.jpg" alt="Porto de Galinhas, PE">
+        <div class="caption">Porto de Galinhas, PE</div>
+      </div>
+      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
+        <img src="https://blog.portoseguro.com.br/wordpress/wp-content/uploads/2024/03/Vista-aerea-da-Pedra-Furada-em-Jericoacoara-Ceara-scaled.jpg" alt="Jericoacoara, CE">
+        <div class="caption">Jericoacoara, CE</div>
+      </div>
+      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
+        <img src="https://pousadacantodosol.com.br/wp-content/uploads/2021/06/5-motivos-para-visitar-Barra-Grande-e-a-Peninsula-de-Marau-na-Bahia.jpg" alt="Barra Grande, PI">
+        <div class="caption">Barra Grande, PI</div>
+      </div>
+      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
+        <img src="https://www.melhoresdestinos.com.br/wp-content/uploads/2020/06/dicas-praia-dos-carneiros-capa2019-01.jpg" alt="Praia dos Carneiros, PE">
+        <div class="caption">Praia dos Carneiros, PE</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="popout" id="popout">
+    <div class="popout-close" onclick="closePopout()">&times;</div>
+    <div class="popout-content">
+      <img id="popout-img" src="" alt="">
+      <h3 id="popout-title"></h3>
+    </div>
+  </div>
+
   <section id="contato">
-    <h2>Entre em contato</h2>
-    <form>
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
-
-      <label for="email">E-mail:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="mensagem">Mensagem:</label>
-      <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-
+    <h2>Entre em contato conosco</h2>
+    <p>Preencha o formulário abaixo para solicitar orçamentos ou tirar dúvidas. Será um prazer falar com você!</p>
+    <form action="mailto:contato@louisetur.com" method="post" enctype="text/plain">
+      <input type="text" name="nome" placeholder="Seu nome" required />
+      <input type="email" name="email" placeholder="Seu e-mail" required />
+      <textarea name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
       <button type="submit">Enviar mensagem</button>
     </form>
   </section>
 
+  <a href="https://wa.me/5599999999999" target="_blank" class="whatsapp-button" title="Fale conosco no WhatsApp">💬</a>
+
   <footer>
-    <p>&copy; 2025 Louise Tur | Instagram: @Louise_tur</p>
+    <p>&copy; 2025 Louise Tur | Instagram: @LouiseTur | E-mail: contato@louisetur.com</p>
   </footer>
+
+  <script>
+    function openPopout(img) {
+      document.getElementById('popout-img').src = img.src;
+      document.getElementById('popout-title').innerText = img.alt;
+      document.getElementById('popout').style.display = 'block';
+    }
+    function closePopout() {
+      document.getElementById('popout').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
