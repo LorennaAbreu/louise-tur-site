@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Louise Tur - Agência de Viagens</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -32,6 +32,7 @@
     header p {
       font-size: 1.2rem;
       letter-spacing: 1px;
+      font-style: italic;
     }
     nav {
       display: flex;
@@ -39,7 +40,6 @@
       gap: 30px;
       background-color: #004080;
       padding: 15px;
-      flex-wrap: wrap;
     }
     nav a {
       color: white;
@@ -67,99 +67,32 @@
       border-radius: 12px;
       margin-top: 40px;
     }
+    .cta h3 {
+      margin-bottom: 10px;
+    }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
-    .gallery-item {
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      border-radius: 10px;
-    }
-    .gallery-item img {
+    .gallery img {
       width: 100%;
+      border-radius: 10px;
       height: 200px;
       object-fit: cover;
-      transition: transform 0.3s;
+      cursor: pointer;
+      position: relative;
     }
-    .gallery-item:hover img {
-      transform: scale(1.03);
-    }
-    .caption {
+    .gallery img:hover::after {
+      content: attr(alt);
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.6);
+      bottom: 5px;
+      left: 5px;
+      background-color: rgba(0,0,0,0.6);
       color: #fff;
-      padding: 10px;
-      font-size: 1rem;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .gallery-item:hover .caption {
-      opacity: 1;
-    }
-    .popout {
-      position: fixed;
-      bottom: 100px;
-      right: 20px;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      display: none;
-      z-index: 1000;
-      width: 300px;
-      animation: slideUp 0.4s ease-out;
-    }
-    .popout-content {
-      padding: 15px;
-      text-align: center;
-    }
-    .popout-content img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .popout-content h3 {
-      margin-top: 10px;
-      color: #004080;
-      font-size: 1rem;
-    }
-    .popout-close {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      font-size: 20px;
-      cursor: pointer;
-      color: #666;
-    }
-    @keyframes slideUp {
-      from {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      padding: 15px 18px;
-      font-size: 24px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      cursor: pointer;
-      z-index: 999;
+      padding: 3px 7px;
+      border-radius: 4px;
+      font-size: 0.9rem;
     }
     .servicos ul {
       list-style: none;
@@ -174,8 +107,7 @@
     form {
       margin-top: 20px;
     }
-    form input,
-    form textarea {
+    form input, form textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #ccc;
@@ -204,9 +136,9 @@
       font-size: 0.9rem;
     }
 
-    /* Estilos para as abas da seção Datas */
+    /* Abas para Datas */
     .tabs {
-      margin-top: 20px;
+      margin-top: 40px;
     }
     .tab-buttons {
       display: flex;
@@ -216,44 +148,103 @@
       justify-content: center;
     }
     .tab-btn {
-      padding: 8px 16px;
+      background-color: #004080;
       border: none;
-      background: #004080;
       color: white;
-      font-weight: 600;
+      padding: 10px 15px;
       cursor: pointer;
+      font-weight: 600;
       border-radius: 6px;
       transition: background-color 0.3s;
     }
     .tab-btn:hover {
-      background: #003366;
+      background-color: #003366;
     }
     .tab-btn.active {
-      background: #ffd700;
+      background-color: #ffd700;
       color: #004080;
     }
     .tab-content {
       display: none;
-      background: #e6f0ff;
+      background-color: #f0f8ff;
       padding: 20px;
       border-radius: 10px;
-      max-width: 600px;
-      margin: auto;
     }
     .tab-content.active {
       display: block;
     }
     .tab-content ul {
-      list-style-type: none;
+      list-style: none;
       padding-left: 0;
     }
-    .tab-content li {
-      padding: 8px 12px;
-      margin-bottom: 8px;
-      border-left: 4px solid #004080;
-      background-color: white;
-      font-weight: 600;
+    .tab-content ul li strong {
+      font-size: 1.1rem;
+      color: #004080;
+    }
+    .tab-content ul li ul {
+      margin-top: 5px;
+      margin-left: 15px;
+    }
+    .tab-content ul li ul li {
+      margin-bottom: 5px;
       font-size: 1rem;
+      color: #333;
+    }
+
+    /* Popout */
+    .popout {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .popout-content {
+      background-color: #fff;
+      border-radius: 10px;
+      max-width: 90%;
+      max-height: 90%;
+      overflow: auto;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    .popout-content img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .popout-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      color: #333;
+      cursor: pointer;
+    }
+
+    /* Botão WhatsApp fixo */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      transition: background-color 0.3s;
+      z-index: 10000;
+    }
+    .whatsapp-button:hover {
+      background-color: #128C7E;
     }
   </style>
 </head>
@@ -273,9 +264,7 @@
 
   <section id="sobre">
     <h2>Sobre a Louise Tur</h2>
-    <p>
-      A <strong>Louise Tur</strong> é uma agência especializada em viagens pelo Nordeste brasileiro. Oferecemos pacotes acessíveis, roteiros personalizados e experiências incríveis pelas praias mais paradisíacas do país. Nosso compromisso é com o seu conforto, tranquilidade e felicidade — da saída ao retorno. Com atendimento humanizado e paixão pelo que fazemos, levamos você aos melhores destinos com segurança e praticidade.
-    </p>
+    <p>A <strong>Louise Tur</strong> é uma agência especializada em viagens pelo Nordeste brasileiro. Oferecemos pacotes acessíveis, roteiros personalizados e experiências incríveis pelas praias mais paradisíacas do país. Nosso compromisso é com o seu conforto, tranquilidade e felicidade — da saída ao retorno. Com atendimento humanizado e paixão pelo que fazemos, levamos você aos melhores destinos com segurança e praticidade.</p>
   </section>
 
   <section id="servicos" class="servicos">
@@ -295,30 +284,12 @@
   <section id="galeria">
     <h2>Praias incríveis que você pode conhecer</h2>
     <div class="gallery">
-      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/35/90/8c/caption.jpg?w=800&h=400&s=1" alt="Lagoinha, CE" />
-        <div class="caption">Lagoinha, CE</div>
-      </div>
-      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
-        <img src="https://www.viajali.com.br/wp-content/uploads/2018/05/praia-maragogi-28.jpg" alt="Maragogi, AL" />
-        <div class="caption">Maragogi, AL</div>
-      </div>
-      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
-        <img src="https://www.dicasportodegalinhas.com.br/wp-content/uploads/2023/07/PiscNat-AHPG_vlubambo-7563-1980x1450.jpg" alt="Porto de Galinhas, PE" />
-        <div class="caption">Porto de Galinhas, PE</div>
-      </div>
-      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
-        <img src="https://blog.portoseguro.com.br/wordpress/wp-content/uploads/2024/03/Vista-aerea-da-Pedra-Furada-em-Jericoacoara-Ceara-scaled.jpg" alt="Jericoacoara, CE" />
-        <div class="caption">Jericoacoara, CE</div>
-      </div>
-      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
-        <img src="https://pousadacantodosol.com.br/wp-content/uploads/2021/06/5-motivos-para-visitar-Barra-Grande-e-a-Peninsula-de-Marau-na-Bahia.jpg" alt="Barra Grande, PI" />
-        <div class="caption">Barra Grande, PI</div>
-      </div>
-      <div class="gallery-item" onclick="openPopout(this.querySelector('img'))">
-        <img src="https://www.melhoresdestinos.com.br/wp-content/uploads/2020/06/dicas-praia-dos-carneiros-capa2019-01.jpg" alt="Praia dos Carneiros, PE" />
-        <div class="caption">Praia dos Carneiros, PE</div>
-      </div>
+      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/35/90/8c/caption.jpg?w=800&h=400&s=1" alt="Lagoinha, CE" onclick="openPopout(this)">
+      <img src="https://www.viajali.com.br/wp-content/uploads/2018/05/praia-maragogi-28.jpg" alt="Maragogi, AL" onclick="openPopout(this)">
+      <img src="https://www.dicasportodegalinhas.com.br/wp-content/uploads/2023/07/PiscNat-AHPG_vlubambo-7563-1980x1450.jpg" alt="Porto de Galinhas, PE" onclick="openPopout(this)">
+      <img src="https://blog.portoseguro.com.br/wordpress/wp-content/uploads/2024/03/Vista-aerea-da-Pedra-Furada-em-Jericoacoara-Ceara-scaled.jpg" alt="Jericoacoara, CE" onclick="openPopout(this)">
+      <img src="https://pousadacantodosol.com.br/wp-content/uploads/2021/06/5-motivos-para-visitar-Barra-Grande-e-a-Peninsula-de-Marau-na-Bahia.jpg" alt="Barra Grande, PI" onclick="openPopout(this)">
+      <img src="https://www.melhoresdestinos.com.br/wp-content/uploads/2020/06/dicas-praia-dos-carneiros-capa2019-01.jpg" alt="Praia dos Carneiros, PE" onclick="openPopout(this)">
     </div>
   </section>
 
@@ -344,108 +315,324 @@
       <div class="tab-content active" id="jan">
         <h3>Janeiro</h3>
         <ul>
-          <li><strong>Jericoacoara, CE:</strong> 10, 15, 20</li>
-          <li><strong>Porto de Galinhas, PE:</strong> 5, 12, 22</li>
-          <li><strong>Maragogi, AL:</strong> 8, 16, 25</li>
+          <li><strong>Jericoacoara, CE:</strong>
+            <ul>
+              <li>→ 10 a 11</li>
+              <li>→ 15 a 16</li>
+              <li>→ 20 a 21</li>
+            </ul>
+          </li>
+          <li><strong>Porto de Galinhas, PE:</strong>
+            <ul>
+              <li>→ 5 a 6</li>
+              <li>→ 12 a 13</li>
+              <li>→ 22 a 23</li>
+            </ul>
+          </li>
+          <li><strong>Maragogi, AL:</strong>
+            <ul>
+              <li>→ 8 a 9</li>
+              <li>→ 16 a 17</li>
+              <li>→ 25 a 26</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
       <div class="tab-content" id="feb">
         <h3>Fevereiro</h3>
         <ul>
-          <li><strong>Barra Grande, PI:</strong> 4, 14, 24</li>
-          <li><strong>Praia dos Carneiros, PE:</strong> 6, 19, 28</li>
-          <li><strong>Lagoinha, CE:</strong> 3, 18, 27</li>
+          <li><strong>Barra Grande, PI:</strong>
+            <ul>
+              <li>→ 4 a 5</li>
+              <li>→ 14 a 15</li>
+              <li>→ 24 a 25</li>
+            </ul>
+          </li>
+          <li><strong>Praia dos Carneiros, PE:</strong>
+            <ul>
+              <li>→ 6 a 7</li>
+              <li>→ 19 a 20</li>
+              <li>→ 28 a 29</li>
+            </ul>
+          </li>
+          <li><strong>Lagoinha, CE:</strong>
+            <ul>
+              <li>→ 3 a 4</li>
+              <li>→ 18 a 19</li>
+              <li>→ 27 a 28</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
       <div class="tab-content" id="mar">
         <h3>Março</h3>
         <ul>
-          <li><strong>Jericoacoara, CE:</strong> 2, 14, 23</li>
-          <li><strong>Porto de Galinhas, PE:</strong> 7, 17, 26</li>
-          <li><strong>Maragogi, AL:</strong> 5, 20, 28</li>
+          <li><strong>Jericoacoara, CE:</strong>
+            <ul>
+              <li>→ 2 a 3</li>
+              <li>→ 14 a 15</li>
+              <li>→ 23 a 24</li>
+            </ul>
+          </li>
+          <li><strong>Porto de Galinhas, PE:</strong>
+            <ul>
+              <li>→ 7 a 8</li>
+              <li>→ 17 a 18</li>
+              <li>→ 26 a 27</li>
+            </ul>
+          </li>
+          <li><strong>Maragogi, AL:</strong>
+            <ul>
+              <li>→ 5 a 6</li>
+              <li>→ 20 a 21</li>
+              <li>→ 28 a 29</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
       <div class="tab-content" id="apr">
         <h3>Abril</h3>
         <ul>
-          <li><strong>Barra Grande, PI:</strong> 1, 11, 21</li>
-          <li><strong>Praia dos Carneiros, PE:</strong> 4, 15, 25</li>
-          <li><strong>Lagoinha, CE:</strong> 7, 18, 29</li>
+          <li><strong>Barra Grande, PI:</strong>
+            <ul>
+              <li>→ 1 a 2</li>
+              <li>→ 11 a 12</li>
+              <li>→ 21 a 22</li>
+            </ul>
+          </li>
+          <li><strong>Praia dos Carneiros, PE:</strong>
+            <ul>
+              <li>→ 4 a 5</li>
+              <li>→ 15 a 16</li>
+              <li>→ 25 a 26</li>
+            </ul>
+          </li>
+          <li><strong>Lagoinha, CE:</strong>
+            <ul>
+              <li>→ 7 a 8</li>
+              <li>→ 18 a 19</li>
+              <li>→ 29 a 30</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
       <div class="tab-content" id="may">
         <h3>Maio</h3>
         <ul>
-          <li><strong>Jericoacoara, CE:</strong> 3, 13, 23</li>
-          <li><strong>Porto de Galinhas, PE:</strong> 6, 16, 26</li>
-          <li><strong>Maragogi, AL:</strong> 9, 19, 29</li>
+          <li><strong>Jericoacoara, CE:</strong>
+            <ul>
+              <li>→ 3 a 4</li>
+              <li>→ 13 a 14</li>
+              <li>→ 23 a 24</li>
+            </ul>
+          </li>
+          <li><strong>Porto de Galinhas, PE:</strong>
+            <ul>
+              <li>→ 6 a 7</li>
+              <li>→ 16 a 17</li>
+              <li>→ 26 a 27</li>
+            </ul>
+          </li>
+          <li><strong>Maragogi, AL:</strong>
+            <ul>
+              <li>→ 9 a 10</li>
+              <li>→ 19 a 20</li>
+              <li>→ 29 a 30</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
       <div class="tab-content" id="jun">
         <h3>Junho</h3>
         <ul>
-          <li><strong>Barra Grande, PI:</strong> 2, 12, 22</li>
-          <li><strong>Praia dos Carneiros, PE:</strong> 5, 15, 25</li>
-          <li><strong>Lagoinha, CE:</strong> 8, 18, 28</li>
+          <li><strong>Barra Grande, PI:</strong>
+            <ul>
+              <li>→ 2 a 3</li>
+              <li>→ 12 a 13</li>
+              <li>→ 22 a 23</li>
+            </ul>
+          </li>
+          <li><strong>Praia dos Carneiros, PE:</strong>
+            <ul>
+              <li>→ 5 a 6</li>
+              <li>→ 15 a 16</li>
+              <li>→ 25 a 26</li>
+            </ul>
+          </li>
+          <li><strong>Lagoinha, CE:</strong>
+            <ul>
+              <li>→ 8 a 9</li>
+              <li>→ 18 a 19</li>
+              <li>→ 28 a 29</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
       <div class="tab-content" id="jul">
         <h3>Julho</h3>
         <ul>
-          <li><strong>Jericoacoara, CE:</strong> 1, 11, 21</li>
-          <li><strong>Porto de Galinhas, PE:</strong> 4, 14, 24</li>
-          <li><strong>Maragogi, AL:</strong> 7, 17, 27</li>
+          <li><strong>Jericoacoara, CE:</strong>
+            <ul>
+              <li>→ 1 a 2</li>
+              <li>→ 11 a 12</li>
+              <li>→ 21 a 22</li>
+            </ul>
+          </li>
+          <li><strong>Porto de Galinhas, PE:</strong>
+            <ul>
+              <li>→ 4 a 5</li>
+              <li>→ 14 a 15</li>
+              <li>→ 24 a 25</li>
+            </ul>
+          </li>
+          <li><strong>Maragogi, AL:</strong>
+            <ul>
+              <li>→ 7 a 8</li>
+              <li>→ 17 a 18</li>
+              <li>→ 27 a 28</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
       <div class="tab-content" id="aug">
         <h3>Agosto</h3>
         <ul>
-          <li><strong>Barra Grande, PI:</strong> 3, 13, 23</li>
-          <li><strong>Praia dos Carneiros, PE:</strong> 6, 16, 26</li>
-          <li><strong>Lagoinha, CE:</strong> 9, 19, 29</li>
+          <li><strong>Barra Grande, PI:</strong>
+            <ul>
+              <li>→ 3 a 4</li>
+              <li>→ 13 a 14</li>
+              <li>→ 23 a 24</li>
+            </ul>
+          </li>
+          <li><strong>Praia dos Carneiros, PE:</strong>
+            <ul>
+              <li>→ 6 a 7</li>
+              <li>→ 16 a 17</li>
+              <li>→ 26 a 27</li>
+            </ul>
+          </li>
+          <li><strong>Lagoinha, CE:</strong>
+            <ul>
+              <li>→ 9 a 10</li>
+              <li>→ 19 a 20</li>
+              <li>→ 29 a 30</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
       <div class="tab-content" id="sep">
         <h3>Setembro</h3>
         <ul>
-          <li><strong>Jericoacoara, CE:</strong> 5, 15, 25</li>
-          <li><strong>Porto de Galinhas, PE:</strong> 8, 18, 28</li>
-          <li><strong>Maragogi, AL:</strong> 11, 21, 30</li>
+          <li><strong>Jericoacoara, CE:</strong>
+            <ul>
+              <li>→ 5 a 6</li>
+              <li>→ 15 a 16</li>
+              <li>→ 25 a 26</li>
+            </ul>
+          </li>
+          <li><strong>Porto de Galinhas, PE:</strong>
+            <ul>
+              <li>→ 8 a 9</li>
+              <li>→ 18 a 19</li>
+              <li>→ 28 a 29</li>
+            </ul>
+          </li>
+          <li><strong>Maragogi, AL:</strong>
+            <ul>
+              <li>→ 11 a 12</li>
+              <li>→ 21 a 22</li>
+              <li>→ 30 a 31</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
       <div class="tab-content" id="oct">
         <h3>Outubro</h3>
         <ul>
-          <li><strong>Barra Grande, PI:</strong> 2, 12, 22</li>
-          <li><strong>Praia dos Carneiros, PE:</strong> 5, 15, 25</li>
-          <li><strong>Lagoinha, CE:</strong> 8, 18, 28</li>
+          <li><strong>Barra Grande, PI:</strong>
+            <ul>
+              <li>→ 2 a 3</li>
+              <li>→ 12 a 13</li>
+              <li>→ 22 a 23</li>
+            </ul>
+          </li>
+          <li><strong>Praia dos Carneiros, PE:</strong>
+            <ul>
+              <li>→ 5 a 6</li>
+              <li>→ 15 a 16</li>
+              <li>→ 25 a 26</li>
+            </ul>
+          </li>
+          <li><strong>Lagoinha, CE:</strong>
+            <ul>
+              <li>→ 8 a 9</li>
+              <li>→ 18 a 19</li>
+              <li>→ 28 a 29</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
       <div class="tab-content" id="nov">
         <h3>Novembro</h3>
         <ul>
-          <li><strong>Jericoacoara, CE:</strong> 1, 11, 21</li>
-          <li><strong>Porto de Galinhas, PE:</strong> 4, 14, 24</li>
-          <li><strong>Maragogi, AL:</strong> 7, 17, 27</li>
+          <li><strong>Jericoacoara, CE:</strong>
+            <ul>
+              <li>→ 1 a 2</li>
+              <li>→ 11 a 12</li>
+              <li>→ 21 a 22</li>
+            </ul>
+          </li>
+          <li><strong>Porto de Galinhas, PE:</strong>
+            <ul>
+              <li>→ 4 a 5</li>
+              <li>→ 14 a 15</li>
+              <li>→ 24 a 25</li>
+            </ul>
+          </li>
+          <li><strong>Maragogi, AL:</strong>
+            <ul>
+              <li>→ 7 a 8</li>
+              <li>→ 17 a 18</li>
+              <li>→ 27 a 28</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
       <div class="tab-content" id="dec">
         <h3>Dezembro</h3>
         <ul>
-          <li><strong>Barra Grande, PI:</strong> 3, 13, 23</li>
-          <li><strong>Praia dos Carneiros, PE:</strong> 6, 16, 26</li>
-          <li><strong>Lagoinha, CE:</strong> 9, 19, 29</li>
+          <li><strong>Barra Grande, PI:</strong>
+            <ul>
+              <li>→ 3 a 4</li>
+              <li>→ 13 a 14</li>
+              <li>→ 23 a 24</li>
+            </ul>
+          </li>
+          <li><strong>Praia dos Carneiros, PE:</strong>
+            <ul>
+              <li>→ 6 a 7</li>
+              <li>→ 16 a 17</li>
+              <li>→ 26 a 27</li>
+            </ul>
+          </li>
+          <li><strong>Lagoinha, CE:</strong>
+            <ul>
+              <li>→ 9 a 10</li>
+              <li>→ 19 a 20</li>
+              <li>→ 29 a 30</li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -466,64 +653,59 @@
     <p>&copy; 2025 Louise Tur | Instagram: @LouiseTur | E-mail: contato@louisetur.com</p>
   </footer>
 
-  <!-- Popout para mostrar imagem + nome da praia -->
-  <div id="popout" class="popout">
-    <span class="popout-close" onclick="closePopout()">&times;</span>
+  <!-- Popout para imagens -->
+  <div class="popout" id="popout">
     <div class="popout-content">
-      <img id="popout-img" src="" alt="" />
-      <h3 id="popout-title"></h3>
+      <span class="popout-close" onclick="closePopout()">&times;</span>
+      <img src="" alt="" id="popout-img" />
+      <p id="popout-caption"></p>
     </div>
   </div>
 
   <!-- Botão WhatsApp fixo -->
-  <button class="whatsapp-button" onclick="window.open('https://wa.me/5599999999999', '_blank')" title="Fale conosco pelo WhatsApp">
-    &#x2709;
+  <button class="whatsapp-button" onclick="window.open('https://wa.me/5511999999999', '_blank')" aria-label="WhatsApp">
+    &#x1F4AC;
   </button>
 
   <script>
-    // Script para as abas da seção Datas
+    // Script para as abas
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
     tabButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         tabButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        tabContents.forEach(c => c.classList.remove('active'));
 
+        btn.classList.add('active');
         const month = btn.getAttribute('data-month');
-        tabContents.forEach(content => {
-          content.classList.remove('active');
-          if(content.id === month) content.classList.add('active');
-        });
+        document.getElementById(month).classList.add('active');
       });
     });
 
-    // Função para abrir o popout com imagem e nome
-    function openPopout(imgElement) {
+    // Popout imagens
+    function openPopout(img) {
       const popout = document.getElementById('popout');
       const popoutImg = document.getElementById('popout-img');
-      const popoutTitle = document.getElementById('popout-title');
+      const popoutCaption = document.getElementById('popout-caption');
 
-      popoutImg.src = imgElement.src;
-      popoutImg.alt = imgElement.alt;
-      popoutTitle.textContent = imgElement.alt;
+      popoutImg.src = img.src;
+      popoutImg.alt = img.alt;
+      popoutCaption.textContent = img.alt;
 
-      popout.style.display = 'block';
+      popout.style.display = 'flex';
     }
 
-    // Fecha o popout
     function closePopout() {
       document.getElementById('popout').style.display = 'none';
     }
 
-    // Fecha o popout ao clicar fora do conteúdo
-    window.addEventListener('click', (e) => {
-      const popout = document.getElementById('popout');
-      if (e.target === popout) {
+    // Fechar popout clicando fora da imagem
+    document.getElementById('popout').addEventListener('click', (e) => {
+      if (e.target.id === 'popout') {
         closePopout();
       }
     });
   </script>
 </body>
 </html>
-
