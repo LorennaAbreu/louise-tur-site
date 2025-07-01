@@ -75,13 +75,37 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
-    .gallery img {
-      width: 100%;
+    .gallery .tooltip {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
       border-radius: 10px;
+    }
+    .gallery .tooltip img {
+      width: 100%;
       height: 200px;
       object-fit: cover;
-      cursor: pointer;
-      position: relative;
+      display: block;
+    }
+    .tooltip .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 64, 128, 0.7);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    .tooltip:hover .overlay {
+      opacity: 1;
     }
     .servicos ul {
       list-style: none;
@@ -267,29 +291,29 @@
   <section id="galeria">
     <h2>Praias incríveis que você pode conhecer</h2>
     <div class="gallery">
-      <div class="tooltip">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/35/90/8c/caption.jpg?w=800&h=400&s=1" alt="Lagoinha, CE" onclick="openPopoutClick(this)">
-        <span class="tooltip-text">Lagoinha, CE</span>
+      <div class="tooltip" onclick="openPopoutClick(this.querySelector('img'))">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/35/90/8c/caption.jpg?w=800&h=400&s=1" alt="Lagoinha, CE">
+        <div class="overlay">Lagoinha, CE</div>
       </div>
-      <div class="tooltip">
-        <img src="https://www.viajali.com.br/wp-content/uploads/2018/05/praia-maragogi-28.jpg" alt="Maragogi, AL" onclick="openPopoutClick(this)">
-        <span class="tooltip-text">Maragogi, AL</span>
+      <div class="tooltip" onclick="openPopoutClick(this.querySelector('img'))">
+        <img src="https://www.viajali.com.br/wp-content/uploads/2018/05/praia-maragogi-28.jpg" alt="Maragogi, AL">
+        <div class="overlay">Maragogi, AL</div>
       </div>
-      <div class="tooltip">
-        <img src="https://www.dicasportodegalinhas.com.br/wp-content/uploads/2023/07/PiscNat-AHPG_vlubambo-7563-1980x1450.jpg" alt="Porto de Galinhas, PE" onclick="openPopoutClick(this)">
-        <span class="tooltip-text">Porto de Galinhas, PE</span>
+      <div class="tooltip" onclick="openPopoutClick(this.querySelector('img'))">
+        <img src="https://www.dicasportodegalinhas.com.br/wp-content/uploads/2023/07/PiscNat-AHPG_vlubambo-7563-1980x1450.jpg" alt="Porto de Galinhas, PE">
+        <div class="overlay">Porto de Galinhas, PE</div>
       </div>
-      <div class="tooltip">
-        <img src="https://blog.portoseguro.com.br/wordpress/wp-content/uploads/2024/03/Vista-aerea-da-Pedra-Furada-em-Jericoacoara-Ceara-scaled.jpg" alt="Jericoacoara, CE" onclick="openPopoutClick(this)">
-        <span class="tooltip-text">Jericoacoara, CE</span>
+      <div class="tooltip" onclick="openPopoutClick(this.querySelector('img'))">
+        <img src="https://blog.portoseguro.com.br/wordpress/wp-content/uploads/2024/03/Vista-aerea-da-Pedra-Furada-em-Jericoacoara-Ceara-scaled.jpg" alt="Jericoacoara, CE">
+        <div class="overlay">Jericoacoara, CE</div>
       </div>
-      <div class="tooltip">
-        <img src="https://pousadacantodosol.com.br/wp-content/uploads/2021/06/5-motivos-para-visitar-Barra-Grande-e-a-Peninsula-de-Marau-na-Bahia.jpg" alt="Barra Grande, PI" onclick="openPopoutClick(this)">
-        <span class="tooltip-text">Barra Grande, PI</span>
+      <div class="tooltip" onclick="openPopoutClick(this.querySelector('img'))">
+        <img src="https://pousadacantodosol.com.br/wp-content/uploads/2021/06/5-motivos-para-visitar-Barra-Grande-e-a-Peninsula-de-Marau-na-Bahia.jpg" alt="Barra Grande, PI">
+        <div class="overlay">Barra Grande, PI</div>
       </div>
-      <div class="tooltip">
-        <img src="https://www.melhoresdestinos.com.br/wp-content/uploads/2020/06/dicas-praia-dos-carneiros-capa2019-01.jpg" alt="Praia dos Carneiros, PE" onclick="openPopoutClick(this)">
-        <span class="tooltip-text">Praia dos Carneiros, PE</span>
+      <div class="tooltip" onclick="openPopoutClick(this.querySelector('img'))">
+        <img src="https://www.melhoresdestinos.com.br/wp-content/uploads/2020/06/dicas-praia-dos-carneiros-capa2019-01.jpg" alt="Praia dos Carneiros, PE">
+        <div class="overlay">Praia dos Carneiros, PE</div>
       </div>
     </div>
   </section>
