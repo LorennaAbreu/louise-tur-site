@@ -180,39 +180,33 @@
       color: #333;
     }
 
-    /* Popout */
-    .popout {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.7);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .popout-content {
-      background-color: #fff;
-      border-radius: 10px;
-      max-width: 90%;
-      max-height: 90%;
-      overflow: auto;
-      text-align: center;
-      padding: 20px;
+       /* Tooltip estilizado */
+    .tooltip {
       position: relative;
+      display: inline-block;
     }
-    .popout-content img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    .popout-close {
+
+    .tooltip .tooltip-text {
+      visibility: hidden;
+      background-color: #004080;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px 12px;
       position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 2rem;
-      color: #333;
-      cursor: pointer;
+      z-index: 1;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
     }
 
     /* Botão WhatsApp fixo */
@@ -273,30 +267,30 @@
   <section id="galeria">
     <h2>Praias incríveis que você pode conhecer</h2>
     <div class="gallery">
-      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/35/90/8c/caption.jpg?w=800&h=400&s=1" alt="Lagoinha, CE" 
-        onmouseenter="openPopout(this)" 
-        onmouseleave="closePopout()" 
-        onclick="openPopoutClick(this)">
-      <img src="https://www.viajali.com.br/wp-content/uploads/2018/05/praia-maragogi-28.jpg" alt="Maragogi, AL" 
-        onmouseenter="openPopout(this)" 
-        onmouseleave="closePopout()" 
-        onclick="openPopoutClick(this)">
-      <img src="https://www.dicasportodegalinhas.com.br/wp-content/uploads/2023/07/PiscNat-AHPG_vlubambo-7563-1980x1450.jpg" alt="Porto de Galinhas, PE" 
-        onmouseenter="openPopout(this)" 
-        onmouseleave="closePopout()" 
-        onclick="openPopoutClick(this)">
-      <img src="https://blog.portoseguro.com.br/wordpress/wp-content/uploads/2024/03/Vista-aerea-da-Pedra-Furada-em-Jericoacoara-Ceara-scaled.jpg" alt="Jericoacoara, CE" 
-        onmouseenter="openPopout(this)" 
-        onmouseleave="closePopout()" 
-        onclick="openPopoutClick(this)">
-      <img src="https://pousadacantodosol.com.br/wp-content/uploads/2021/06/5-motivos-para-visitar-Barra-Grande-e-a-Peninsula-de-Marau-na-Bahia.jpg" alt="Barra Grande, PI" 
-        onmouseenter="openPopout(this)" 
-        onmouseleave="closePopout()" 
-        onclick="openPopoutClick(this)">
-      <img src="https://www.melhoresdestinos.com.br/wp-content/uploads/2020/06/dicas-praia-dos-carneiros-capa2019-01.jpg" alt="Praia dos Carneiros, PE" 
-        onmouseenter="openPopout(this)" 
-        onmouseleave="closePopout()" 
-        onclick="openPopoutClick(this)">
+      <div class="tooltip">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/35/90/8c/caption.jpg?w=800&h=400&s=1" alt="Lagoinha, CE" onclick="openPopoutClick(this)">
+        <span class="tooltip-text">Lagoinha, CE</span>
+      </div>
+      <div class="tooltip">
+        <img src="https://www.viajali.com.br/wp-content/uploads/2018/05/praia-maragogi-28.jpg" alt="Maragogi, AL" onclick="openPopoutClick(this)">
+        <span class="tooltip-text">Maragogi, AL</span>
+      </div>
+      <div class="tooltip">
+        <img src="https://www.dicasportodegalinhas.com.br/wp-content/uploads/2023/07/PiscNat-AHPG_vlubambo-7563-1980x1450.jpg" alt="Porto de Galinhas, PE" onclick="openPopoutClick(this)">
+        <span class="tooltip-text">Porto de Galinhas, PE</span>
+      </div>
+      <div class="tooltip">
+        <img src="https://blog.portoseguro.com.br/wordpress/wp-content/uploads/2024/03/Vista-aerea-da-Pedra-Furada-em-Jericoacoara-Ceara-scaled.jpg" alt="Jericoacoara, CE" onclick="openPopoutClick(this)">
+        <span class="tooltip-text">Jericoacoara, CE</span>
+      </div>
+      <div class="tooltip">
+        <img src="https://pousadacantodosol.com.br/wp-content/uploads/2021/06/5-motivos-para-visitar-Barra-Grande-e-a-Peninsula-de-Marau-na-Bahia.jpg" alt="Barra Grande, PI" onclick="openPopoutClick(this)">
+        <span class="tooltip-text">Barra Grande, PI</span>
+      </div>
+      <div class="tooltip">
+        <img src="https://www.melhoresdestinos.com.br/wp-content/uploads/2020/06/dicas-praia-dos-carneiros-capa2019-01.jpg" alt="Praia dos Carneiros, PE" onclick="openPopoutClick(this)">
+        <span class="tooltip-text">Praia dos Carneiros, PE</span>
+      </div>
     </div>
   </section>
 
