@@ -83,17 +83,6 @@
       cursor: pointer;
       position: relative;
     }
-    .gallery img:hover::after {
-      content: attr(alt);
-      position: absolute;
-      bottom: 5px;
-      left: 5px;
-      background-color: rgba(0,0,0,0.6);
-      color: #fff;
-      padding: 3px 7px;
-      border-radius: 4px;
-      font-size: 0.9rem;
-    }
     .servicos ul {
       list-style: none;
       padding-left: 0;
@@ -284,12 +273,30 @@
   <section id="galeria">
     <h2>Praias incríveis que você pode conhecer</h2>
     <div class="gallery">
-      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/35/90/8c/caption.jpg?w=800&h=400&s=1" alt="Lagoinha, CE" onclick="openPopout(this)">
-      <img src="https://www.viajali.com.br/wp-content/uploads/2018/05/praia-maragogi-28.jpg" alt="Maragogi, AL" onclick="openPopout(this)">
-      <img src="https://www.dicasportodegalinhas.com.br/wp-content/uploads/2023/07/PiscNat-AHPG_vlubambo-7563-1980x1450.jpg" alt="Porto de Galinhas, PE" onclick="openPopout(this)">
-      <img src="https://blog.portoseguro.com.br/wordpress/wp-content/uploads/2024/03/Vista-aerea-da-Pedra-Furada-em-Jericoacoara-Ceara-scaled.jpg" alt="Jericoacoara, CE" onclick="openPopout(this)">
-      <img src="https://pousadacantodosol.com.br/wp-content/uploads/2021/06/5-motivos-para-visitar-Barra-Grande-e-a-Peninsula-de-Marau-na-Bahia.jpg" alt="Barra Grande, PI" onclick="openPopout(this)">
-      <img src="https://www.melhoresdestinos.com.br/wp-content/uploads/2020/06/dicas-praia-dos-carneiros-capa2019-01.jpg" alt="Praia dos Carneiros, PE" onclick="openPopout(this)">
+      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/35/90/8c/caption.jpg?w=800&h=400&s=1" alt="Lagoinha, CE" 
+        onmouseenter="openPopout(this)" 
+        onmouseleave="closePopout()" 
+        onclick="openPopoutClick(this)">
+      <img src="https://www.viajali.com.br/wp-content/uploads/2018/05/praia-maragogi-28.jpg" alt="Maragogi, AL" 
+        onmouseenter="openPopout(this)" 
+        onmouseleave="closePopout()" 
+        onclick="openPopoutClick(this)">
+      <img src="https://www.dicasportodegalinhas.com.br/wp-content/uploads/2023/07/PiscNat-AHPG_vlubambo-7563-1980x1450.jpg" alt="Porto de Galinhas, PE" 
+        onmouseenter="openPopout(this)" 
+        onmouseleave="closePopout()" 
+        onclick="openPopoutClick(this)">
+      <img src="https://blog.portoseguro.com.br/wordpress/wp-content/uploads/2024/03/Vista-aerea-da-Pedra-Furada-em-Jericoacoara-Ceara-scaled.jpg" alt="Jericoacoara, CE" 
+        onmouseenter="openPopout(this)" 
+        onmouseleave="closePopout()" 
+        onclick="openPopoutClick(this)">
+      <img src="https://pousadacantodosol.com.br/wp-content/uploads/2021/06/5-motivos-para-visitar-Barra-Grande-e-a-Peninsula-de-Marau-na-Bahia.jpg" alt="Barra Grande, PI" 
+        onmouseenter="openPopout(this)" 
+        onmouseleave="closePopout()" 
+        onclick="openPopoutClick(this)">
+      <img src="https://www.melhoresdestinos.com.br/wp-content/uploads/2020/06/dicas-praia-dos-carneiros-capa2019-01.jpg" alt="Praia dos Carneiros, PE" 
+        onmouseenter="openPopout(this)" 
+        onmouseleave="closePopout()" 
+        onclick="openPopoutClick(this)">
     </div>
   </section>
 
@@ -533,23 +540,23 @@
         <ul>
           <li><strong>Jericoacoara, CE:</strong>
             <ul>
+              <li>→ 2 a 3</li>
+              <li>→ 12 a 13</li>
+              <li>→ 22 a 23</li>
+            </ul>
+          </li>
+          <li><strong>Porto de Galinhas, PE:</strong>
+            <ul>
               <li>→ 5 a 6</li>
               <li>→ 15 a 16</li>
               <li>→ 25 a 26</li>
             </ul>
           </li>
-          <li><strong>Porto de Galinhas, PE:</strong>
+          <li><strong>Maragogi, AL:</strong>
             <ul>
               <li>→ 8 a 9</li>
               <li>→ 18 a 19</li>
               <li>→ 28 a 29</li>
-            </ul>
-          </li>
-          <li><strong>Maragogi, AL:</strong>
-            <ul>
-              <li>→ 11 a 12</li>
-              <li>→ 21 a 22</li>
-              <li>→ 30 a 31</li>
             </ul>
           </li>
         </ul>
@@ -557,6 +564,60 @@
 
       <div class="tab-content" id="oct">
         <h3>Outubro</h3>
+        <ul>
+          <li><strong>Barra Grande, PI:</strong>
+            <ul>
+              <li>→ 1 a 2</li>
+              <li>→ 11 a 12</li>
+              <li>→ 21 a 22</li>
+            </ul>
+          </li>
+          <li><strong>Praia dos Carneiros, PE:</strong>
+            <ul>
+              <li>→ 4 a 5</li>
+              <li>→ 14 a 15</li>
+              <li>→ 24 a 25</li>
+            </ul>
+          </li>
+          <li><strong>Lagoinha, CE:</strong>
+            <ul>
+              <li>→ 7 a 8</li>
+              <li>→ 17 a 18</li>
+              <li>→ 27 a 28</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="nov">
+        <h3>Novembro</h3>
+        <ul>
+          <li><strong>Jericoacoara, CE:</strong>
+            <ul>
+              <li>→ 3 a 4</li>
+              <li>→ 13 a 14</li>
+              <li>→ 23 a 24</li>
+            </ul>
+          </li>
+          <li><strong>Porto de Galinhas, PE:</strong>
+            <ul>
+              <li>→ 6 a 7</li>
+              <li>→ 16 a 17</li>
+              <li>→ 26 a 27</li>
+            </ul>
+          </li>
+          <li><strong>Maragogi, AL:</strong>
+            <ul>
+              <li>→ 9 a 10</li>
+              <li>→ 19 a 20</li>
+              <li>→ 29 a 30</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="dec">
+        <h3>Dezembro</h3>
         <ul>
           <li><strong>Barra Grande, PI:</strong>
             <ul>
@@ -581,129 +642,91 @@
           </li>
         </ul>
       </div>
-
-      <div class="tab-content" id="nov">
-        <h3>Novembro</h3>
-        <ul>
-          <li><strong>Jericoacoara, CE:</strong>
-            <ul>
-              <li>→ 1 a 2</li>
-              <li>→ 11 a 12</li>
-              <li>→ 21 a 22</li>
-            </ul>
-          </li>
-          <li><strong>Porto de Galinhas, PE:</strong>
-            <ul>
-              <li>→ 4 a 5</li>
-              <li>→ 14 a 15</li>
-              <li>→ 24 a 25</li>
-            </ul>
-          </li>
-          <li><strong>Maragogi, AL:</strong>
-            <ul>
-              <li>→ 7 a 8</li>
-              <li>→ 17 a 18</li>
-              <li>→ 27 a 28</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <div class="tab-content" id="dec">
-        <h3>Dezembro</h3>
-        <ul>
-          <li><strong>Barra Grande, PI:</strong>
-            <ul>
-              <li>→ 3 a 4</li>
-              <li>→ 13 a 14</li>
-              <li>→ 23 a 24</li>
-            </ul>
-          </li>
-          <li><strong>Praia dos Carneiros, PE:</strong>
-            <ul>
-              <li>→ 6 a 7</li>
-              <li>→ 16 a 17</li>
-              <li>→ 26 a 27</li>
-            </ul>
-          </li>
-          <li><strong>Lagoinha, CE:</strong>
-            <ul>
-              <li>→ 9 a 10</li>
-              <li>→ 19 a 20</li>
-              <li>→ 29 a 30</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
     </div>
   </section>
 
   <section id="contato">
-    <h2>Entre em contato conosco</h2>
-    <p>Preencha o formulário abaixo para solicitar orçamentos ou tirar dúvidas. Será um prazer falar com você!</p>
-    <form action="mailto:contato@louisetur.com" method="post" enctype="text/plain">
-      <input type="text" name="nome" placeholder="Seu nome" required />
-      <input type="email" name="email" placeholder="Seu e-mail" required />
-      <textarea name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
-      <button type="submit">Enviar mensagem</button>
+    <h2>Contato</h2>
+    <form action="mailto:louise.tur@exemplo.com" method="post" enctype="text/plain">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
     </form>
   </section>
 
   <footer>
-    <p>&copy; 2025 Louise Tur | Instagram: @LouiseTur | E-mail: contato@louisetur.com</p>
+    <p>&copy; 2024 Louise Tur Agência de Viagens - Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Popout para imagens -->
-  <div class="popout" id="popout">
-    <div class="popout-content">
-      <span class="popout-close" onclick="closePopout()">&times;</span>
+  <!-- Popout -->
+  <div class="popout" id="popout" aria-hidden="true" role="dialog" aria-label="Imagem ampliada">
+    <div class="popout-content" id="popout-content">
+      <button class="popout-close" onclick="closePopout()" aria-label="Fechar">&times;</button>
       <img src="" alt="" id="popout-img" />
       <p id="popout-caption"></p>
     </div>
   </div>
 
   <!-- Botão WhatsApp fixo -->
-  <button class="whatsapp-button" onclick="window.open('https://wa.me/5511999999999', '_blank')" aria-label="WhatsApp">
-    &#x1F4AC;
+  <button class="whatsapp-button" aria-label="Chamar no WhatsApp" onclick="window.open('https://wa.me/5588996814523', '_blank')">
+    📱
   </button>
 
   <script>
-    // Script para as abas
+    // Tabs para datas
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabButtons.forEach(b => b.classList.remove('active'));
-        tabContents.forEach(c => c.classList.remove('active'));
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const month = button.getAttribute('data-month');
 
-        btn.classList.add('active');
-        const month = btn.getAttribute('data-month');
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        button.classList.add('active');
         document.getElementById(month).classList.add('active');
       });
     });
 
     // Popout imagens
-    function openPopout(img) {
-      const popout = document.getElementById('popout');
-      const popoutImg = document.getElementById('popout-img');
-      const popoutCaption = document.getElementById('popout-caption');
+    const popout = document.getElementById('popout');
+    const popoutImg = document.getElementById('popout-img');
+    const popoutCaption = document.getElementById('popout-caption');
 
+    let clickOpened = false;
+
+    function openPopout(img) {
+      if(clickOpened) return; // não abre no hover se popout está aberto por click
       popoutImg.src = img.src;
       popoutImg.alt = img.alt;
       popoutCaption.textContent = img.alt;
-
       popout.style.display = 'flex';
+      popout.setAttribute('aria-hidden', 'false');
     }
 
     function closePopout() {
-      document.getElementById('popout').style.display = 'none';
+      if(clickOpened) return; // só fecha com hover se não estiver aberto por click
+      popout.style.display = 'none';
+      popout.setAttribute('aria-hidden', 'true');
     }
 
-    // Fechar popout clicando fora da imagem
-    document.getElementById('popout').addEventListener('click', (e) => {
-      if (e.target.id === 'popout') {
-        closePopout();
+    function openPopoutClick(img) {
+      clickOpened = true;
+      popoutImg.src = img.src;
+      popoutImg.alt = img.alt;
+      popoutCaption.textContent = img.alt;
+      popout.style.display = 'flex';
+      popout.setAttribute('aria-hidden', 'false');
+    }
+
+    // fechar popout por click no × ou fora da área da imagem
+    popout.addEventListener('click', (e) => {
+      if(e.target === popout || e.target.classList.contains('popout-close')) {
+        clickOpened = false;
+        popout.style.display = 'none';
+        popout.setAttribute('aria-hidden', 'true');
       }
     });
   </script>
